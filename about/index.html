@@ -1,270 +1,214 @@
+
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    
+    <meta charset="utf-8" />
     <title>about | Hexo</title>
-    <meta name="keywords" content="hexo,theme,otakism,otaku"/>
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="google-site-verification" content=""/>
-    <meta name="baidu-site-verification" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-23T02:40:34.000Z">
-<meta property="article:modified_time" content="2023-12-23T02:40:34.404Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-    
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
 
-    <!-- Favicon -->
-    
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:300,400,700" rel="stylesheet">
 
-    
-<link rel="stylesheet" href="/style.css">
+<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
-    <script>
-      function setLoadingBarProgress(num) {
-        document.getElementById('loading-bar').style.width = num + "%";
-      }
-    </script>
 
-    
 
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-
 <body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
-<div id="loading-bar-wrapper">
-  <div id="loading-bar"></div>
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>about</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/12/23
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
-<script>setLoadingBarProgress(20)</script>
-
-<div id="site-wrapper">
-
-    <header id="header">
-    <div id="header-wrapper" class="clearfix">
-        <a id="logo" href="/">
-            <img src="/img/logo.png"/>
-            <span id="site-desc">
-                otaku keeps alive
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
-        </a>
-        <button id="site-nav-switch">
-            <span class="icon icon-menu"></span>
-        </button>
-    </div>
-</header>
-    <script>setLoadingBarProgress(40);</script>
-
-    <main id="main" role="main">
-        <article id="page-"
-         class="post article white-box article-type-page"
-         itemscope itemprop="blogPost">
-    <h2 class="title">
-        <a href="/about/index.html">
-            about
-        </a>
-    </h2>
-    <time>
-        Dec 23, 2023
-    </time>
-    <section class="content">
-        <div class="article-entry" itemprop="articleBody">
-            
+            &commat;John Doe
         </div>
-        <div class="article-tags tags">
-            
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
         </div>
-    </section>
-</article>
-
-
-
-
-
-        <script>setLoadingBarProgress(60);</script>
-    </main>
-
-    <footer id="footer" class="clearfix">
-
-    
-
-    <div class="social-wrapper">
-        
-            
-                <a href="https://github.com/artchen" class="social github"
-                   target="_blank" rel="external">
-                    <span class="icon icon-github"></span>
-                </a>
-            
-                <a href="/atom.xml" class="social rss"
-                   target="_blank" rel="external">
-                    <span class="icon icon-rss"></span>
-                </a>
-            
         
     </div>
-
-    <div class="theme-by">Theme <span class="codename">Memory</span> designed by <a href="https://artifact.me/"
-                                                                                    target="_blank">Art Chen</a>.
-    </div>
-    <div>&copy; <a href="/">Hexo</a></div>
-
 </footer>
 
-
-    <script>setLoadingBarProgress(80);</script>
-    <div class="overlay"></div>
-</div>
-
-<div class="site-sidebar" id="site-sidebar">
-
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
     
 
-    <div class="sidebar-switch clearfix "
-         style="display: none">
-        <a class="dark-btn active" data-toggle="toc">
-            <span class="icon icon-list"></span>
-            <span class="text">Index</span>
-        </a>
-        <a class="dark-btn" data-toggle="bio">
-            <span class="icon icon-person"></span>
-            <span class="text">Bio</span>
-        </a>
-    </div>
-
-    <div class="site-toc "
-         style="display: none">
-        
-            <div class="no-index">No Index</div>
-        
-    </div>
-
-    <div class="site-bio show"
-         style="display: block">
-
-        <div class="about-me clearfix">
-            <div class="avatar">
-                <img src="/img/avatar.png"/>
-            </div>
-            <div class="info">
-                <a class="name dark-btn" href="/about">
-                    John Doe
-                </a>
-            </div>
-            <div class="info">
-                <span class="item desc">
-                    
-                </span>
-            </div>
-        </div>
-
-        <div class="menu section">
-            <ul class="clearfix">
-                
-                    <li class="left">
-                        <a href="/about"
-                           onfocus="this.blur();"
-                           class="nav-about dark-btn block">
-                            About
-                        </a>
-                    </li>
-                
-                    <li class="right">
-                        <a href="/archives"
-                           onfocus="this.blur();"
-                           class="nav-archives dark-btn block">
-                            Archives
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="shortcuts">
-        <a href="#header" class="top window-nav dark-btn" id="go-top">
-            <span class="icon icon-chevron-thin-up"></span>
-        </a>
-        <a class="close dark-btn" id="sidebar-close">
-            <span class="icon icon-close"></span>
-        </a>
-        <a href="#footer" class="top window-nav dark-btn" id="go-bottom">
-            <span class="icon icon-chevron-thin-down"></span>
-        </a>
-    </div>
-
-</div>
 
 
 
-
-
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
-
-
-<script src="/js/jquery.fitvids.js"></script>
-
-<script>
-  var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
-  var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
-  var ALGOLIA_API_KEY = "";
-  var ALGOLIA_APP_ID = "";
-  var ALGOLIA_INDEX_NAME = "";
-  var AZURE_SERVICE_NAME = "";
-  var AZURE_INDEX_NAME = "";
-  var AZURE_QUERY_KEY = "";
-  var SEARCH_SERVICE = "";
-  var universalSearchConfig = {};
-  if (SEARCH_SERVICE === 'google') {
-    universalSearchConfig = {
-      searchService: SEARCH_SERVICE,
-      apiKey: GOOGLE_CUSTOM_SEARCH_API_KEY,
-      engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
-      imagePath: "/img/"
-    };
-  } else if (SEARCH_SERVICE === 'algolia') {
-    universalSearchConfig = {
-      searchService: SEARCH_SERVICE,
-      apiKey: ALGOLIA_API_KEY,
-      appId: ALGOLIA_APP_ID,
-      indexName: ALGOLIA_INDEX_NAME,
-      imagePath: "/img/"
-    };
-  } else if (SEARCH_SERVICE === 'azure') {
-    universalSearchConfig = {
-      searchService: SEARCH_SERVICE,
-      serviceName: AZURE_SERVICE_NAME,
-      indexName: AZURE_INDEX_NAME,
-      apiKey: AZURE_QUERY_KEY,
-      imagePath: "/img/"
-    };
-  }
-</script>
-
-<script src="/js/app.js"></script>
-
-
-<script src="/js/search.js"></script>
-
-
-
-
-
-<script>setLoadingBarProgress(100);</script>
-
+    
 </body>
 </html>
